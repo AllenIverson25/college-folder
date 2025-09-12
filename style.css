@@ -99,7 +99,9 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-x: hidden;
-  background-color: #f8f9fa;
+background-image: url(imgs/backkkk.jpg);
+background-repeat: no-repeat;
+background-attachment: scroll;
 }
 
 .background {
@@ -176,6 +178,16 @@ body {
   color: #fff;
   margin: 5px 0;
 }
+#carouselExampleCaptions {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#carouselExampleCaptions img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
 .nav-link {
 color: bisque;
 font-family: "gala-condensed", sans-serif;
