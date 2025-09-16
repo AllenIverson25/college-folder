@@ -16,7 +16,7 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="https://use.typekit.net/ilw4bpe.css">
         <link rel="stylesheet" href="https://use.typekit.net/dmb4gmj.css">
     </head>
@@ -55,218 +55,7 @@
             </div>
         </div>
 
-        <style>
-            .intro-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: black;
-                z-index: 9999;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .video-container {
-                width: 100%;
-                height: 100%;
-                position: relative;
-            }
-
-            .intro-video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .start-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #000000 0%, #006747 100%);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                opacity: 1;
-                transition: opacity 1s ease;
-                overflow: hidden;
-            }
-
-            .animated-background {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(45deg, 
-                    transparent 0%,
-                    rgba(0, 103, 71, 0.1) 45%,
-                    rgba(255, 255, 255, 0.2) 50%,
-                    rgba(0, 103, 71, 0.1) 55%,
-                    transparent 100%);
-                animation: shine 3s infinite;
-                z-index: 1;
-            }
-
-            @keyframes shine {
-                0% { transform: translate(-50%, -50%) rotate(0deg); }
-                100% { transform: translate(-50%, -50%) rotate(360deg); }
-            }
-
-            .start-content {
-                text-align: center;
-                color: white;
-                z-index: 2;
-                animation: fadeIn 1s ease-out;
-            }
-
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .logo-animation {
-                margin-bottom: 2rem;
-            }
-
-            .animated-logo {
-                width: 200px;
-                height: auto;
-                animation: pulsate 2s infinite;
-            }
-
-            @keyframes pulsate {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-                100% { transform: scale(1); }
-            }
-
-            .welcome-text {
-                font-family: "lubaline", sans-serif;
-                font-size: 2rem;
-                margin-bottom: 1rem;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                animation: slideIn 0.5s ease-out forwards;
-            }
-
-            .university-name {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-bottom: 2rem;
-            }
-
-            .text-accent {
-                font-family: "lubaline", sans-serif;
-                font-size: 4rem;
-                line-height: 1.2;
-                background: linear-gradient(45deg, #ffffff, #98FB98);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-                opacity: 0;
-                transform: translateX(-50px);
-                animation: slideInText 0.5s ease-out forwards;
-            }
-
-            .text-accent:nth-child(2) { animation-delay: 0.2s; }
-            .text-accent:nth-child(3) { animation-delay: 0.4s; }
-
-            @keyframes slideInText {
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-
-            .tagline {
-                font-size: 1.5rem;
-                margin-bottom: 3rem;
-                letter-spacing: 2px;
-                opacity: 0;
-                animation: fadeIn 0.5s ease-out 0.6s forwards;
-            }
-
-            .start-button {
-                background: transparent;
-                color: white;
-                border: 2px solid white;
-                padding: 15px 40px;
-                font-size: 1.2rem;
-                cursor: pointer;
-                transition: all 0.4s ease;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                position: relative;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .start-button::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.2),
-                    transparent
-                );
-                transition: 0.5s;
-            }
-
-            .start-button:hover {
-                background: #006747;
-                border-color: #006747;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
-
-            .start-button:hover::before {
-                left: 100%;
-            }
-
-            .button-icon {
-                transition: transform 0.3s ease;
-            }
-
-            .start-button:hover .button-icon {
-                transform: translateX(5px);
-            }
-
-            .skip-button {
-                position: absolute;
-                bottom: 20px;
-                right: 20px;
-                padding: 10px 20px;
-                background: rgba(0, 103, 71, 0.8);
-                color: white;
-                border: 2px solid white;
-                cursor: pointer;
-                font-size: 1.1rem;
-                transition: all 0.3s ease;
-                z-index: 10000;
-            }
-
-            .skip-button:hover {
-                background: rgba(0, 103, 71, 1);
-                transform: scale(1.05);
-            }
-
-            body.intro-playing {
-                overflow: hidden;
-            }
-        </style>
+        <!-- Inline styles moved to style.css for maintainability -->
 
         <script>
             window.onload = function() {
@@ -331,21 +120,27 @@
 			<a class="navbar-brand d-block d-md-none" href=""><img alt="Free Frontend Logo" class="img-fluid" height="" src="imgs/better logo.png" width="200"></a> <button aria-controls="navbarSupportedContent5" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent5" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent5">
 				<ul class="navbar-nav align-items-md-center mx-auto my-2 my-lg-0">
-					<li class="nav-item me-4 ">
-						<a class="nav-link" href="">About</a>
-					</li>
-					<li class="nav-item me-4">
-						<a class="nav-link" href="">Shop</a>
-					</li>
+                    <li class="nav-item me-4 ">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="#aid">Aid</a>
+                    </li>
+                        <li class="nav-item me-4">
+                        <a class="nav-link" href="#student-life">Student Life</a>
+                    </li>
 					<li class="nav-item">
 						<a class="navbar-brand d-md-block d-none me-4" href=""><img alt="Free Frontend Logo" class="img-fluid" height="" src="imgs/dam.png" width="110"></a>
 					</li>
-					<li class="nav-item me-4">
-						<a class="nav-link" href="">Blog</a>
-					</li>
-					<li class="nav-item me-4">
-						<a class="nav-link" href="">Contact</a>
-					</li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="#aid">Cost</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                        <li class="nav-item me-4">
+                        <a class="nav-link" href="#alumni">Alumni</a>
+                    </li>
 				</ul>
 			</div>
 		</div>
@@ -398,7 +193,242 @@ Mascot: Rocky the Bull 🐂</ul></li>
         <img src="imgs/img2.jpg" alt="" class="img-fluid">
     </div>
  </div>
-        </main>
+ <div class="row">
+    <div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="imgs/arta.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="imgs/bus.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="imgs/eng.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+ </div>
+
+<!-- Additional content sections required for the project -->
+<section id="about" class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>About the University</h2>
+            <p><strong>Location:</strong> Tampa, St. Petersburg &amp; Sarasota-Manatee, Florida</p>
+            <p><strong>Mission:</strong> To promote student success, research innovation, and community impact.</p>
+            <p><strong>Contact:</strong> admissions@usf.edu | (813) 974-2011</p>
+        </div>
+        <div class="col-md-6">
+            <img src="imgs/University-of-South-Florida-Logo.jpg" alt="USF logo" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section id="programs" class="container py-5">
+    <h2 class="mb-4">Academic Programs</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="imgs/eng.jpg" class="card-img-top" alt="Engineering">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Engineering</h5>
+                    <p class="card-text">BS in Mechanical &amp; Electrical Engineering.</p>
+                    <button class="btn btn-outline-success mt-auto more-info" data-target="#prog1">More info</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="imgs/arta.jpg" class="card-img-top" alt="Arts">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Arts &amp; Design</h5>
+                    <p class="card-text">Programs in Digital Media, Graphic Design.</p>
+                    <button class="btn btn-outline-success mt-auto more-info" data-target="#prog2">More info</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="imgs/bus.jpg" class="card-img-top" alt="Business">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Business</h5>
+                    <p class="card-text">BS in Business Administration; internships with industry partners.</p>
+                    <button class="btn btn-outline-success mt-auto more-info" data-target="#prog3">More info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <div id="prog1" class="program-details d-none p-3 border rounded">
+            <h5>Engineering Curriculum</h5>
+            <ul>
+                <li>Core math &amp; science courses</li>
+                <li>Hands-on lab rotations</li>
+                <li>Senior capstone project</li>
+            </ul>
+            <p><strong>Faculty:</strong> Dr. A. Smith (Mechanical), Dr. L. Chen (Electrical)</p>
+        </div>
+
+        <div id="prog2" class="program-details d-none p-3 border rounded">
+            <h5>Arts &amp; Design Curriculum</h5>
+            <ul>
+                <li>Foundations in visual design</li>
+                <li>Portfolio-based assessment</li>
+                <li>Internships with local studios</li>
+            </ul>
+        </div>
+
+        <div id="prog3" class="program-details d-none p-3 border rounded">
+            <h5>Business Curriculum</h5>
+            <ul>
+                <li>Core business fundamentals</li>
+                <li>Electives in entrepreneurship</li>
+                <li>Co-op &amp; internship opportunities</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="student-life" class="container py-5">
+    <h2>Student Life</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Campus facilities include libraries, recreation centers, student clubs, and housing options.</p>
+            <p>Clubs: Coding Club, Student Government, Art Society, Business Leaders.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="imgs/sunset of campus.jpg" class="img-fluid" alt="Campus sunset">
+        </div>
+    </div>
+</section>
+
+<section id="aid" class="container py-5">
+    <h2>Cost &amp; Financial Aid</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Tuition varies by program. Use the calculator to estimate costs.</p>
+            <form id="tuitionForm" class="row g-2">
+                <div class="col-12">
+                    <label class="form-label">Tuition per credit ($)</label>
+                    <input id="tuitionPerCredit" class="form-control" type="number" value="300">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Credits per term</label>
+                    <input id="credits" class="form-control" type="number" value="15">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Scholarships / Grants ($)</label>
+                    <input id="scholarship" class="form-control" type="number" value="0">
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-success" type="submit">Calculate</button>
+                </div>
+            </form>
+            <p class="mt-3">Estimated term cost: <span id="tuitionResult">$0.00</span></p>
+        </div>
+        <div class="col-md-6">
+            <h5>Financial Aid Options</h5>
+            <ul>
+                <li>Merit scholarships</li>
+                <li>Need-based grants</li>
+                <li>Federal student loans</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="inquiry" class="container py-5">
+    <h2>Contact / Inquiry</h2>
+    <form id="inquiryForm" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label class="form-label">Full name</label>
+            <input id="inquiryName" class="form-control" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input id="inquiryEmail" class="form-control" type="email" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+        </div>
+        <div class="col-12">
+            <label class="form-label">Message</label>
+            <textarea id="inquiryMessage" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-success" type="submit">Send Inquiry</button>
+        </div>
+    </form>
+
+    <!-- Modal confirmation -->
+    <div class="modal fade" id="inquiryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Inquiry Submitted</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Thanks! Your message has been received. We will contact you soon.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="alumni" class="container py-5">
+    <h2>Alumni Success</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alex Johnson</h5>
+                    <p class="card-text">CEO, Tech Startup — Graduated 2010</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Maria Lopez</h5>
+                    <p class="card-text">Lead Designer, Creative Agency — Graduated 2015</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+                </main>
         <footer>
             <!-- place footer here -->
         </footer>
@@ -414,5 +444,6 @@ Mascot: Rocky the Bull 🐂</ul></li>
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+    <script src="js/main.js"></script>
     </body>
 </html>

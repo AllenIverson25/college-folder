@@ -1,0 +1,133 @@
+/* Main polished stylesheet for the College Recruitment site
+	 - College theme: green + gold accents (USF-like), glassmorphism, gradients
+	 - Uses Google Fonts: Playfair Display (headings), Inter (body), Rubik (accents)
+	 - Keeps Bootstrap for layout; overrides styles for a premium look
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;600;700&family=Rubik:wght@400;500;700&display=swap');
+
+:root{
+	--bg: #07171a; /* deep teal/near-black */
+	--surface: rgba(255,255,255,0.03);
+	--glass-border: rgba(255,255,255,0.06);
+	--muted: #9fb3ad;
+	--brand-green: #006747; /* USF green */
+	--brand-gold: #FFC627; /* warm gold */
+	--accent-grad: linear-gradient(90deg,var(--brand-green),#008f5a, #7be4a4);
+	--shadow: 0 12px 40px rgba(2,6,23,0.6);
+}
+
+/* Base reset and typography */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+	background: radial-gradient(800px 400px at 10% 10%, rgba(124, 252, 206, 0.02), transparent),
+							radial-gradient(700px 350px at 90% 90%, rgba(255,198,71,0.02), transparent),
+							var(--bg);
+	color:#e6f6f0;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	line-height:1.5;
+}
+
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+/* NAVBAR */
+.navbar{background:transparent;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.navbar-brand img{height:54px}
+.navbar-nav{display:flex;gap:.25rem;align-items:center}
+.nav-link{color:var(--muted);padding:.45rem .75rem;border-radius:10px;transition:all .22s ease;font-weight:600}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,0.02);transform:translateY(-2px)}
+.nav-link.active{color:var(--brand-gold);text-decoration:none;box-shadow:inset 0 -3px 0 rgba(255,198,71,0.25)}
+.navbar-toggler{border-color:rgba(255,255,255,0.08)}
+
+/* HERO */
+.hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:68vh;padding:2rem 0}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;filter:grayscale(.05) contrast(.95)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,8,7,0.16), rgba(4,8,7,0.46));}
+.hero-overlay{position:relative;z-index:2;text-align:center;max-width:920px;margin:0 auto;padding:3.5rem 1rem}
+.logotext{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.4rem);line-height:1;letter-spacing:-1px;margin-bottom:.5rem;color:#fff;text-shadow:0 10px 30px rgba(2,8,6,0.6)}
+.hero p{color:var(--muted);font-size:1.05rem;margin-bottom:1.15rem}
+.hero .btn{border-radius:999px;padding:.6rem 1.2rem;font-weight:700}
+.btn-success{background:var(--accent-grad);border:0;color:#052219;box-shadow:0 10px 30px rgba(6,18,15,0.36);transition:transform .22s ease,box-shadow .22s}
+.btn-success:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(6,18,15,0.48)}
+
+/* Intro overlay (glass) */
+.intro-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999}
+.start-content{max-width:780px;padding:2rem;text-align:center;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(8px);box-shadow:var(--shadow);border:1px solid var(--glass-border)}
+.animated-logo{width:140px;height:auto;margin:0 auto 1rem;border-radius:12px}
+.welcome-text{font-family:'Rubik',sans-serif;font-weight:600;color:var(--brand-gold);margin-bottom:.2rem}
+.university-name{font-family:'Playfair Display',serif;color:#fff;font-size:2.1rem;margin-bottom:.35rem}
+.tagline{color:var(--muted);margin-bottom:1rem}
+.start-button{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.14);padding:.6rem 1.25rem;border-radius:999px;cursor:pointer;transition:all .28s}
+.start-button:hover{background:var(--accent-grad);color:#042219;transform:translateY(-3px)}
+.skip-button{position:absolute;right:1rem;bottom:1rem;background:rgba(0,103,71,.88);color:#fff;border:0;padding:.5rem .8rem;border-radius:6px}
+
+/* Headings and sections */
+h2{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.6rem;color:#fff}
+.section{padding:3rem 0}
+
+/* Layout helpers */
+.row{display:flex;flex-wrap:wrap;gap:1rem}
+.col-6{flex:1 1 48%}
+.p-5{padding:2rem}
+
+/* Cards */
+.card{border:none;border-radius:14px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:var(--shadow);transition:transform .28s,box-shadow .28s}
+.card:hover{transform:translateY(-8px);box-shadow:0 28px 70px rgba(2,6,23,0.6)}
+.card-img-top{height:180px;object-fit:cover}
+.card-body{padding:1.25rem}
+
+.more-info{border-radius:10px}
+
+/* Program details (glass) */
+.program-details{display:block;margin-top:1rem}
+.program-details.d-none{display:none}
+.program-details{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 30px rgba(4,8,15,0.45);color:#dff5ea}
+
+/* Forms */
+input.form-control, textarea.form-control{background:transparent;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:.6rem .8rem;color:var(--muted);transition:border .18s ease,box-shadow .18s ease}
+input.form-control:focus, textarea.form-control:focus{outline:none;border-color:var(--brand-green);box-shadow:0 6px 20px rgba(0,103,71,0.06);color:#e6f6f0}
+.form-label{color:#cfeee6}
+
+#tuitionResult{font-weight:700;color:var(--brand-gold)}
+
+/* Modal tweaks */
+.modal-content{background:linear-gradient(180deg, rgba(6,11,16,0.85), rgba(6,11,16,0.95));border-radius:12px;border:1px solid rgba(255,255,255,0.03);color:#e6eef6}
+
+/* Footer */
+footer{background:linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.98));color:var(--muted);padding:2rem 0;margin-top:2rem}
+
+/* Buttons */
+.btn-outline-success{border-radius:999px;border:1px solid rgba(255,255,255,0.06);color:#dffcf0}
+.btn-outline-success:hover{background:linear-gradient(90deg,var(--brand-green),var(--brand-gold));color:#042219}
+
+/* Micro interactions */
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.animated-logo{animation:floaty 6s ease-in-out infinite}
+
+/* Responsive */
+@media(max-width:991px){
+	.col-6{flex-basis:100%}
+	.hero{min-height:56vh}
+	.hero-overlay{padding:2rem 1rem}
+	.navbar .container{flex-direction:row;gap:.5rem}
+}
+
+@media(max-width:575px){
+	.nav-link{display:none}
+	.navbar .navbar-brand{margin-right:auto}
+	.logotext{font-size:1.35rem}
+	.card-img-top{height:160px}
+}
+
+/* Helpers */
+.muted{color:var(--muted)}
+html{scroll-behavior:smooth}
+
+/* Accessibility focus */
+a:focus,button:focus,input:focus,textarea:focus{outline:3px solid rgba(255,198,71,0.12);outline-offset:3px}
+

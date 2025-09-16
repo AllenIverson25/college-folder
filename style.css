@@ -1,3 +1,148 @@
+/*
+  Modern polished stylesheet
+  - Uses Google Fonts (imported below)
+  - Gradient palette, glassmorphism, soft shadows
+  - Smooth transitions and micro-interactions
+  - Responsive layout rules
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;600;700&family=Rubik:wght@400;500;700&display=swap');
+
+:root{
+  --bg: #0f1724; /* deep navy */
+  --surface: rgba(255,255,255,0.04);
+  --glass: rgba(255,255,255,0.06);
+  --muted: #9aa4b2;
+  --accent1: #00C9A7; /* teal */
+  --accent2: #5EEAD4; /* mint */
+  --accent3: #6EE7B7; /* soft green */
+  --highlight: linear-gradient(135deg,var(--accent1),var(--accent2));
+  --card-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+/* Base resets */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.05), transparent),
+              radial-gradient(900px 400px at 90% 90%, rgba(16,185,129,0.04), transparent),
+              var(--bg);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* Utility container (limits width like a soft container) */
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+/* NAVBAR */
+.navbar{background:transparent;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px);padding:.75rem 0}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.navbar-brand img{height:56px;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6))}
+.navbar-nav{display:flex;gap:.25rem;align-items:center}
+.nav-link{color:var(--muted);padding:.5rem .8rem;border-radius:10px;transition:all .28s ease;font-weight:600}
+.nav-link:hover{color:#fff;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));transform:translateY(-2px)}
+.nav-link.active{color:var(--accent2);box-shadow:inset 0 -2px 0 var(--accent2)}
+
+/* Hero */
+.hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:66vh;padding:2rem 0}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;filter:grayscale(.05) saturate(.9)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,10,14,0.3), rgba(7,10,14,0.6));}
+.hero-overlay{position:relative;z-index:2;text-align:center;max-width:900px;margin:0 auto;padding:4rem 1rem}
+.logotext{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.8rem);line-height:1;letter-spacing:-1px;margin-bottom:.6rem;color:#fff;text-shadow:0 12px 40px rgba(2,6,23,0.6)}
+.hero p{color:var(--muted);font-size:1.05rem;margin-bottom:1.15rem}
+.hero .btn{border-radius:999px;padding:.65rem 1.25rem;font-weight:700;letter-spacing:.6px}
+.btn-success{background:var(--highlight);border:0;color:#04201a;box-shadow:0 8px 30px rgba(12,29,25,.35);transition:transform .22s ease,box-shadow .22s ease}
+.btn-success:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(12,29,25,.45)}
+
+/* Intro overlay modal (glass) */
+.intro-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999}
+.start-overlay{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.start-content{max-width:760px;padding:2rem;text-align:center;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(8px);box-shadow:var(--card-shadow);border:1px solid var(--glass-border)}
+.start-content .animated-logo{width:140px;height:auto;margin:0 auto 1rem;border-radius:12px}
+.start-content .welcome-text{font-family:'Rubik',sans-serif;font-weight:600;color:#dffcf0;margin-bottom:.2rem}
+.start-content .university-name{font-family:'Playfair Display',serif;color:#fff;font-size:2.2rem;margin-bottom:.35rem}
+.start-content .tagline{color:var(--muted);margin-bottom:1rem}
+.start-button{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.14);padding:.65rem 1.25rem;border-radius:999px;cursor:pointer;transition:all .28s}
+.start-button:hover{background:var(--highlight);color:#01221a;transform:translateY(-3px)}
+
+/* Section headings */
+h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:.6rem;color:#f8fafc}
+
+/* Two-column intro details */
+.row{display:flex;flex-wrap:wrap;gap:1rem}
+.col-6{flex:1 1 48%}
+.p-5{padding:2rem}
+
+/* Carousel tweaks */
+#carouselExampleCaptions{max-width:1000px;margin:2rem auto}
+
+/* Cards */
+.card{border:none;border-radius:14px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 12px 40px rgba(2,6,23,0.55);transition:transform .28s,box-shadow .28s}
+.card:hover{transform:translateY(-8px);box-shadow:0 28px 70px rgba(2,6,23,0.6)}
+.card-img-top{height:180px;object-fit:cover}
+.card-body{padding:1.25rem}
+
+.more-info{border-radius:10px}
+
+/* Program details (glass) */
+.program-details{display:block;margin-top:1rem}
+.program-details.d-none{display:none}
+.program-details{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,0.04);box-shadow:0 12px 30px rgba(4,8,15,0.6);color:#dbeafe}
+
+/* Forms */
+input.form-control, textarea.form-control{background:transparent;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:.6rem .8rem;color:var(--muted);transition:border .18s ease,box-shadow .18s ease}
+input.form-control:focus, textarea.form-control:focus{outline:none;border-color:var(--accent1);box-shadow:0 6px 20px rgba(14,165,123,0.08);color:#e6eef6}
+.form-label{color:#cfeee6}
+
+/* Tuition result */
+#tuitionResult{font-weight:700;color:var(--accent2)}
+
+/* Modal tweaks */
+.modal-content{background:linear-gradient(180deg, rgba(6,11,16,0.85), rgba(6,11,16,0.95));border-radius:12px;border:1px solid rgba(255,255,255,0.03);color:#e6eef6}
+
+/* Alumni cards */
+.card .card-title{color:#f8fafc}
+.card .card-text{color:var(--muted)}
+
+/* Footer */
+footer{background:linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.98));color:var(--muted);padding:2rem 0;margin-top:2rem}
+
+/* Small UI details */
+.btn-outline-success{border-radius:999px;border:1px solid rgba(255,255,255,0.06);color:#dffcf0}
+.btn-outline-success:hover{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#01221a}
+
+/* subtle floating animation for logos */
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.animated-logo{animation:floaty 6s ease-in-out infinite}
+
+/* Responsive rules */
+@media(max-width:991px){
+  .col-6{flex-basis:100%}
+  .hero{min-height:56vh}
+  .hero-overlay{padding:2rem 1rem}
+  .navbar .container{flex-direction:row;gap:.5rem}
+}
+
+@media(max-width:575px){
+  .nav-link{display:none}
+  .navbar .navbar-brand{margin-right:auto}
+  .logotext{font-size:1.35rem}
+  .card-img-top{height:160px}
+}
+
+/* small helper */
+.muted{color:var(--muted)}
+
+/* Smooth anchor scrolling fallback */
+html{scroll-behavior:smooth}
+
+/* highlight focus states for accessibility */
+a:focus,button:focus,input:focus,textarea:focus{outline:3px solid rgba(94,234,212,0.14);outline-offset:3px}
 
 .hero {
   position: relative;
@@ -99,7 +244,9 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-x: hidden;
-  background-color: #f8f9fa;
+background-image: url(imgs/backkkk.jpg);
+background-repeat: no-repeat;
+background-attachment: scroll;
 }
 
 .background {
@@ -176,10 +323,99 @@ body {
   color: #fff;
   margin: 5px 0;
 }
+#carouselExampleCaptions {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#carouselExampleCaptions img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
 .nav-link {
 color: bisque;
 font-family: "gala-condensed", sans-serif;
 font-weight: 700;
 font-style: normal;
 font-size: 50px;
+}
+
+.program-details {
+  background: rgba(255,255,255,0.98);
+  color: #111;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+}
+
+/* Theme variables */
+:root{
+  --brand: #006747;
+  --accent: #98FB98;
+  --bg: #f6f7f9;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family: 'Muli', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.5}
+
+/* Intro overlay (moved from inline) */
+.intro-overlay{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center}
+.video-container{width:100%;height:100%;position:relative}
+.intro-video{width:100%;height:100%;object-fit:cover}
+.start-overlay{position:absolute;inset:0;background:linear-gradient(135deg,#000 0%,var(--brand) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2rem}
+.animated-background{position:absolute;inset:0;width:200%;height:200%;background:linear-gradient(45deg,transparent 0%,rgba(0,103,71,0.06) 45%,rgba(255,255,255,0.06) 50%,rgba(0,103,71,0.06) 55%,transparent 100%);animation:shine 6s linear infinite}
+@keyframes shine{0%{transform:translate(-50%,-50%) rotate(0)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+.start-content{position:relative;z-index:2;color:#fff;text-align:center}
+.animated-logo{width:160px;height:auto;display:block;margin:0 auto 1rem;animation:pulsate 2s infinite}
+@keyframes pulsate{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+.welcome-text{font-size:1.25rem;margin:0 0 .5rem;font-weight:600}
+.university-name{display:flex;flex-direction:column;align-items:center;margin-bottom:1rem}
+.text-accent{font-weight:800;font-size:2.25rem;background:linear-gradient(45deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.tagline{font-size:1.1rem;letter-spacing:1px;margin-bottom:1.25rem}
+.start-button{background:transparent;color:#fff;border:2px solid #fff;padding:.75rem 1.25rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s}
+.start-button:hover{background:var(--brand);border-color:var(--brand);transform:translateY(-3px)}
+.skip-button{position:absolute;right:1rem;bottom:1rem;background:rgba(0,103,71,.88);color:#fff;border:0;padding:.5rem .8rem;border-radius:6px}
+
+/* Hero */
+.hero{position:relative;height:70vh;min-height:420px;display:flex;align-items:center}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.6));z-index:0}
+.hero-overlay{position:relative;z-index:2;color:#fff;text-align:center;width:100%;padding:2rem}
+.hero-overlay .btn{border-width:2px}
+
+/* Navbar improvements */
+.navbar{background:linear-gradient(90deg,var(--brand),#004f3e);padding:.6rem 1rem}
+.navbar .navbar-brand img{height:48px}
+.navbar-nav{align-items:center}
+.nav-link{color:#fff;font-weight:700;padding:.5rem 1rem;font-size:1rem}
+.nav-link.active{color:var(--accent);text-decoration:none}
+.navbar-toggler{border-color:rgba(255,255,255,.12)}
+
+/* Cards and content */
+.card{border-radius:12px;box-shadow:0 8px 24px rgba(16,24,40,.06)}
+.card .card-title{font-weight:700}
+.card .card-text{color:var(--muted)}
+
+.program-details{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 6px 20px rgba(16,24,40,.04)}
+
+/* Forms */
+.form-label{font-weight:600}
+
+/* Footer */
+footer{padding:2rem 0;background:#0b0f13;color:#d1d5db}
+
+/* Responsive tweaks */
+@media(min-width:768px){
+  .text-accent{font-size:3rem}
+  .welcome-text{font-size:1.5rem}
+}
+
+@media(max-width:767px){
+  .nav-link{font-size:.95rem;padding:.4rem}
+  .text-accent{font-size:1.75rem}
 }
